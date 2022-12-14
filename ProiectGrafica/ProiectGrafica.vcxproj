@@ -162,7 +162,7 @@ cd "$(ProjectDir)/lib/x64/SOIL" &amp; xcopy /c /y *.dll *.lib</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="include\glm\detail\glm.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="proiect.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\imageloader.cpp" />
     <ClCompile Include="src\loadShaders.cpp" />
@@ -470,6 +470,8 @@ cd "$(ProjectDir)/lib/x64/SOIL" &amp; xcopy /c /y *.dll *.lib</Command>
     <Text Include="include\glm\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="C:\Users\Teodora\source\repos\LaboratorGrafica\LaboratorGrafica\03_02_Shader.frag" />
+    <None Include="C:\Users\Teodora\source\repos\LaboratorGrafica\LaboratorGrafica\03_02_Shader.vert" />
     <None Include="example.frag" />
     <None Include="example.vert" />
     <None Include="include\glm\detail\func_common.inl" />

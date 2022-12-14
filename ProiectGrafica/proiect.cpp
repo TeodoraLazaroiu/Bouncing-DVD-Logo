@@ -36,7 +36,7 @@ float PI = 3.141592, angle = 0;
 float tx = 0; float ty = 0;
 float width = 450, height = 300;
 float ballX = 0.0, ballY = 0.0;
-float ballXMax = width, ballXMin = -width, ballYMax = height, ballYMin = -height;
+float ballXMax = 400, ballXMin = -400, ballYMax = 250, ballYMin = -250; //diferenta de 50px intre centrul patratului si marginea sa (perpendiculara trasa)
 float xSpeed = 0.1;
 float ySpeed = 0.035;
 glm::mat4
@@ -92,10 +92,10 @@ void CreateVBO(void)
 		0.0f, -300.0f, 0.0f, 1.0f,
 		0.0f, 300.0f, 0.0f, 1.0f,
 		// varfuri pentru dreptunghi
-		-50.0f,  -50.0f, 0.0f, 1.0f,
-		50.0f, -50.0f, 0.0f, 1.0f,
-		50.0f,  50.0f, 0.0f, 1.0f,
-		-50.0f,  50.0f, 0.0f, 1.0f,
+		-100.0f,  -100.0f, 0.0f, 1.0f,
+		100.0f, -100.0f, 0.0f, 1.0f,
+		100.0f,  100.0f, 0.0f, 1.0f,
+		-100.0f,  100.0f, 0.0f, 1.0f,
 	};
 
 	// culorile varfurilor din colturi
@@ -151,7 +151,7 @@ void DestroyShaders(void)
 
 void Initialize(void)
 {
-	glClearColor(1.0f, 1.0f, 1.0f, 0.0f); // culoarea de fond a ecranului
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f); // culoarea de fond a ecranului
 	CreateVBO();
 	CreateShaders();
 	codColLocation = glGetUniformLocation(ProgramId, "codCuloare");
@@ -171,14 +171,7 @@ void RenderFunction(void)
 
 	// Deseneaza liniile de coordonate
 	// Matricea de redimensionare (pentru elementele "fixe") 
-	myMatrix = resizeMatrix;
-	// Culoarea
-	codCol = 0;
-	// Transmitere variabile uniforme
-	glUniformMatrix4fv(myMatrixLocation, 1, GL_FALSE, &myMatrix[0][0]);
-	glUniform1i(codColLocation, codCol);
 	// Apelare DrawArrays
-	glDrawArrays(GL_LINES, 0, 4);
 
 	// Matricea pentru dreptunghiul albastru 
 	myMatrix = resizeMatrix * matrTransl * matrScale1 * matrRot;
@@ -213,4 +206,3 @@ int main(int argc, char* argv[])
 	glutCloseFunc(Cleanup);
 	glutMainLoop();
 }
-
